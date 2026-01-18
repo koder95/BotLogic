@@ -15,11 +15,11 @@ public class ModelManager {
 
   public ModelManager() {
     G3dModelLoader modelLoader = new G3dModelLoader(new UBJsonReader());
-    this.robotModel            = modelLoader.loadModel(Gdx.files.getFileHandle("models/bot.g3db", Files.FileType.Internal));
+    this.robotModel            = modelLoader.loadModel(Gdx.files.getFileHandle("assets/models/bot.g3db", Files.FileType.Internal));
     //TextureAttribute attr = (TextureAttribute) robotModel.materials.first().get(TextureAttribute.Diffuse);
     //attr.textureDescription.minFilter = Texture.TextureFilter.Nearest;
     //attr.textureDescription.magFilter = Texture.TextureFilter.Nearest;
 
-    this.ledModel              = modelLoader.loadModel(Gdx.files.getFileHandle("models/led.g3db", Files.FileType.Internal));
+    this.ledModel              = modelLoader.loadModel(Gdx.files.getFileHandle("assets/models/led.g3db", Files.FileType.Internal));
   }
 }

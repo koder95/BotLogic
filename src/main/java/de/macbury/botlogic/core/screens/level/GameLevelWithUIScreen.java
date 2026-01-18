@@ -110,10 +110,10 @@ public class GameLevelWithUIScreen extends GameLevelScreen implements EndGameLis
 
     String body = "var robot;\n";
     for(LevelFile.LevelFeature feature : levelDef.getFeatures()) {
-      body += Gdx.files.internal("sketches/features/"+feature.toString()+".js").readString() + "\n";
+      body += Gdx.files.internal("assets/sketches/features/"+feature.toString()+".js").readString() + "\n";
     }
 
-    body += "\n" + Gdx.files.internal("sketches/new/blank.js").readString();
+    body += "\n" + Gdx.files.internal("assets/sketches/new/blank.js").readString();
     body += "\n";
 
     this.codeEditorView = new CodeEditorView();

@@ -14,7 +14,7 @@ public class FinalCellShadeCompositorStep extends BufferedCompositorPass {
   private GLTexture colorTexture;
 
   public FinalCellShadeCompositorStep(RenderContext context) {
-    super(context, Gdx.files.internal("shaders/final.vert"), Gdx.files.internal("shaders/final.frag"));
+    super(context, Gdx.files.internal("assets/shaders/final.vert"), Gdx.files.internal("assets/shaders/final.frag"));
   }
 
   @Override

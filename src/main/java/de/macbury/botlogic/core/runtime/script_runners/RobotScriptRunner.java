@@ -21,7 +21,7 @@ public class RobotScriptRunner extends ScriptRunner {
     for(BaseLib lib : gameController.getRobotLibs()) {
       bindLib(lib);
     }
-    currentScriptRunnable.getContext().evaluateString(scriptObjectScope, Gdx.files.internal("sketches/rdk/helpers.js").readString(), "RobotScriptRunner", 0, null);//TODO: Better loading
+    currentScriptRunnable.getContext().evaluateString(scriptObjectScope, Gdx.files.internal("assets/sketches/rdk/helpers.js").readString(), "RobotScriptRunner", 0, null);//TODO: Better loading
   }
 
   @Override

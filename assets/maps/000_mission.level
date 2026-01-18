@@ -2,6 +2,6 @@
    <name>Misja 1: Poruszanie się</name>
    <description>Prosty plac zabaw</description>
    <map>000_mission.png</map>
-   <script>maps/000_mission.js</script>
+   <script>assets/maps/000_mission.js</script>
    <using />
 </levelFile>

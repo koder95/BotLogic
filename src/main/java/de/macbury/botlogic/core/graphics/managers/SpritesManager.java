@@ -11,7 +11,7 @@ public class SpritesManager {
   public TextureAtlas effectsAtlas;
 
   public SpritesManager() {
-    this.effectsAtlas = new TextureAtlas(Gdx.files.internal("sprites/effects.atlas"));
+    this.effectsAtlas = new TextureAtlas(Gdx.files.internal("assets/sprites/effects.atlas"));
   }
 
   public Decal sonarDecal() {

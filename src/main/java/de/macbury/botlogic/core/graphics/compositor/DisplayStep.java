@@ -15,7 +15,7 @@ public class DisplayStep extends CompositorPass {
   private int u_effects_texture;
 
   public DisplayStep(RenderContext context) {
-    super(context, Gdx.files.internal("shaders/simple.vert"), Gdx.files.internal("shaders/simple.frag"));
+    super(context, Gdx.files.internal("assets/shaders/simple.vert"), Gdx.files.internal("assets/shaders/simple.frag"));
   }
 
   @Override

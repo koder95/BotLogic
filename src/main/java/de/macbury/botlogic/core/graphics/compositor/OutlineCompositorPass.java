@@ -13,7 +13,7 @@ public class OutlineCompositorPass extends BufferedCompositorPass {
   private Texture texture;
 
   public OutlineCompositorPass(RenderContext nc) {
-    super(nc, Gdx.files.internal("shaders/edge.vert"), Gdx.files.internal("shaders/edge.frag"));
+    super(nc, Gdx.files.internal("assets/shaders/edge.vert"), Gdx.files.internal("assets/shaders/edge.frag"));
   }
 
   @Override

@@ -30,7 +30,7 @@ public class Map extends Renderable implements Disposable {
   private Vector3 robotStartPosition;
 
   public Map(FileHandle handle) {
-    this.tileset = new TextureAtlas(Gdx.files.internal("tileset.atlas"));
+    this.tileset = new TextureAtlas(Gdx.files.internal("assets/tileset.atlas"));
     this.floorEndRegion = this.tileset.findRegion("floor_end");
     TextureAttribute textureAttribute = TextureAttribute.createDiffuse(this.tileset.getTextures().first());
     this.material = new Material(textureAttribute);

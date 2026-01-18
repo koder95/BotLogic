@@ -96,21 +96,30 @@ public class LevelFile {
   public void save(String path) {
     Persister persister = new Persister();
     try {
-      persister.write(this, Gdx.files.internal("maps/"+path+".level").file());
+      persister.write(this, Gdx.files.internal("assets/maps/"+path+".level").file());
     } catch (Exception e) {
       e.printStackTrace();
     }
   }
 
   public FileHandle geometryFile() {
-    return Gdx.files.internal("maps/"+map);
+    return Gdx.files.internal("assets/maps/"+map);
   }
 
   public static ArrayList<LevelFile> list() {
-    ArrayList<LevelFile> results = new ArrayList<LevelFile>();
-    File[] files = (new File(Gdx.files.internal("maps/").path())).listFiles();
+    ArrayList<LevelFile> results = new ArrayList<>();
+    FileHandle fileHandle = Gdx.files.internal("assets/maps");
+    if (!fileHandle.exists()) {
+      throw new GdxRuntimeException("maps directory not found");
+    } else {
+      File parent = fileHandle.file();
+      System.out.println(parent.getAbsoluteFile());
+    }
+    File[] files = fileHandle.file().listFiles();
 
-    for (File file : files) {
+    for (FileHandle handle : fileHandle.list()) {
+      System.out.println(handle);
+      File file = handle.file();
       if (file.isFile() && file.getName().contains(".level")) {
         try {
           results.add(LevelFile.load(file.getPath()));

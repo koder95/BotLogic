@@ -94,7 +94,7 @@ public class GameLevelScreen implements Screen {
     colorModelBatch = new ModelBatch(renderContext);
     decalBatch      = new DecalBatch(new CameraGroupStrategy(perspectiveCamera));
 
-    DepthShader.Config depthConfig     = new DepthShader.Config(Gdx.files.internal("shaders/depth.vertex").readString(), Gdx.files.internal("shaders/depth.frag").readString());
+    DepthShader.Config depthConfig     = new DepthShader.Config(Gdx.files.internal("assets/shaders/depth.vertex").readString(), Gdx.files.internal("assets/shaders/depth.frag").readString());
     depthConfig.defaultCullFace        = GL20.GL_BACK;
     depthConfig.depthBufferOnly        = false;
     depthModelBatch = new ModelBatch(renderContext, new DepthShaderProvider(depthConfig));

@@ -41,14 +41,14 @@ public class FlatSkin extends Skin {
 
 
   public FlatSkin() {
-    super(new TextureAtlas(Gdx.files.internal("gui/skin.pack")));
+    super(new TextureAtlas(Gdx.files.internal("assets/gui/skin.pack")));
 
-    this.defaultFont   = new BitmapFont(Gdx.files.internal("fonts/default.fnt"));
+    this.defaultFont   = new BitmapFont(Gdx.files.internal("assets/fonts/default.fnt"));
     this.add("default", defaultFont);
 
-    this.robotoBigFont  = new BitmapFont(Gdx.files.internal("fonts/roboto_big.fnt"));
-    this.robotoThinFont = new BitmapFont(Gdx.files.internal("fonts/roboto_thin.fnt"));
-    this.codeFont       = new BitmapFont(Gdx.files.internal("fonts/code.fnt"));
+    this.robotoBigFont  = new BitmapFont(Gdx.files.internal("assets/fonts/roboto_big.fnt"));
+    this.robotoThinFont = new BitmapFont(Gdx.files.internal("assets/fonts/roboto_thin.fnt"));
+    this.codeFont       = new BitmapFont(Gdx.files.internal("assets/fonts/code.fnt"));
 
     this.redTextButton   = new TextButton.TextButtonStyle();
     redTextButton.up     = this.getDrawable("button_red_normal");
@@ -149,8 +149,8 @@ public class FlatSkin extends Skin {
     this.codeEditorArea.syntaxErrorTextColor      = Color.WHITE;
     this.codeEditorArea.exceptionGutterIcon       = this.getDrawable("exception");
 
-    this.pointer = Gdx.graphics.newCursor(new Pixmap(Gdx.files.internal("gui/arrow.png")), 0, 0);
-    this.text = Gdx.graphics.newCursor(new Pixmap(Gdx.files.internal("gui/text_cursor.png")), 16, 16);
+    this.pointer = Gdx.graphics.newCursor(new Pixmap(Gdx.files.internal("assets/gui/arrow.png")), 0, 0);
+    this.text = Gdx.graphics.newCursor(new Pixmap(Gdx.files.internal("assets/gui/text_cursor.png")), 16, 16);
 
     this.tooltipStyle           = new TooltipWidget.TooltipStyle();
     tooltipStyle.font           = robotoThinFont;
