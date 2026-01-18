@@ -1,13 +1,18 @@
 package de.macbury.botlogic.core;
 
 import aurelienribon.tweenengine.Tween;
+import com.badlogic.gdx.Files;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.FPSLogger;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g3d.loader.G3dModelLoader;
+import com.badlogic.gdx.utils.UBJsonReader;
 import de.macbury.botlogic.core.audio.AudioManager;
 import de.macbury.botlogic.core.config.ConfigManager;
 import de.macbury.botlogic.core.controller.GameController;
 import de.macbury.botlogic.core.entites.EntityManager;
+import de.macbury.botlogic.core.entites.LedEntity;
 import de.macbury.botlogic.core.entites.ModelEntity;
 import de.macbury.botlogic.core.entites.RobotEntity;
 import de.macbury.botlogic.core.graphics.managers.ModelManager;
@@ -23,6 +28,8 @@ import de.macbury.botlogic.core.tween.ModelEntityAccessor;
 import de.macbury.botlogic.core.tween.RobotEntityAccessor;
 import de.macbury.botlogic.core.ui.FlatSkin;
 import org.mozilla.javascript.ContextFactory;
+
+import java.util.Map;
 
 /**
  * Created by macbury on 27.03.14.
@@ -40,15 +47,24 @@ public class GameManager extends Game {
     Tween.registerAccessor(RTSCameraController.class, new CameraAccessor());
     Tween.registerAccessor(RobotEntity.class, new RobotEntityAccessor());
     ContextFactory.initGlobal(new ScriptContextFactory());
+    G3dModelLoader modelLoader = new G3dModelLoader(new UBJsonReader());
 
     BotLogic.game         = this;
     BotLogic.inputManager = new InputManager();
     BotLogic.audio        = new AudioManager();
     BotLogic.skin         = new FlatSkin();
-    BotLogic.models       = new ModelManager();
-    BotLogic.sprites      = new SpritesManager();
-    BotLogic.entities     = new EntityManager();
-    BotLogic.config       = new ConfigManager();
+    BotLogic.models       = new ModelManager(Map.of(
+            RobotEntity.class, modelLoader.loadModel(Gdx.files.getFileHandle("assets/models/bot.g3db", Files.FileType.Internal)),
+            LedEntity.class, modelLoader.loadModel(Gdx.files.getFileHandle("assets/models/led.g3db", Files.FileType.Internal))
+    ));
+    BotLogic.sprites      = new SpritesManager(
+            new TextureAtlas(Gdx.files.internal("assets/sprites/effects.atlas"))
+    );
+    BotLogic.entities     = new EntityManager(Map.of(
+            RobotEntity.class, new RobotEntity(BotLogic.models.getModelFor(RobotEntity.class)),
+            LedEntity.class, new LedEntity(BotLogic.models.getModelFor(LedEntity.class))
+    ));
+    BotLogic.config       = new ConfigManager(Gdx.app.getPreferences("Settings"));
 
     BotLogic.screens      = new ScreenManager(this);// always last!!!
     BotLogic.config.load();

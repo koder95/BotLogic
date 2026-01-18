@@ -1,6 +1,5 @@
 package de.macbury.botlogic.core.graphics.managers;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g3d.decals.Decal;
 
@@ -8,10 +7,10 @@ import com.badlogic.gdx.graphics.g3d.decals.Decal;
  * Created by macbury on 12.04.14.
  */
 public class SpritesManager {
-  public TextureAtlas effectsAtlas;
+  private final TextureAtlas effectsAtlas;
 
-  public SpritesManager() {
-    this.effectsAtlas = new TextureAtlas(Gdx.files.internal("assets/sprites/effects.atlas"));
+  public SpritesManager(TextureAtlas textureAtlas) {
+    this.effectsAtlas = textureAtlas;
   }
 
   public Decal sonarDecal() {

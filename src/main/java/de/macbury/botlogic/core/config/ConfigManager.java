@@ -10,8 +10,8 @@ import de.macbury.botlogic.core.BotLogic;
 public class ConfigManager {
   private Preferences config;
   private int outlineQualityCache = -1;
-  public ConfigManager() {
-    this.config = Gdx.app.getPreferences("Settings");
+  public ConfigManager(Preferences config) {
+    this.config = config;
   }
 
   public void putResolution(int width, int height, boolean fullscreen) {

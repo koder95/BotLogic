@@ -21,10 +21,7 @@ import com.badlogic.gdx.graphics.glutils.FrameBuffer;
 import com.badlogic.gdx.math.Vector3;
 import de.macbury.botlogic.core.BotLogic;
 import de.macbury.botlogic.core.controller.GameController;
-import de.macbury.botlogic.core.entites.Entity;
-import de.macbury.botlogic.core.entites.EntityDecalRenderable;
-import de.macbury.botlogic.core.entites.EntityModelRenderable;
-import de.macbury.botlogic.core.entites.RobotEntity;
+import de.macbury.botlogic.core.entites.*;
 import de.macbury.botlogic.core.graphics.camera.RTSCameraController;
 import de.macbury.botlogic.core.graphics.compositor.LevelCompositor;
 import de.macbury.botlogic.core.screens.level.file.LevelFile;
@@ -32,6 +29,7 @@ import de.macbury.botlogic.core.screens.level.map.Block;
 import de.macbury.botlogic.core.screens.level.map.Map;
 
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 public class GameLevelScreen implements Screen {
 
@@ -85,8 +83,8 @@ public class GameLevelScreen implements Screen {
 
     this.cellShadingCompositor = new LevelCompositor(renderContext);
 
-    this.robot = BotLogic.entities.robot();
-    this.robot.led = BotLogic.entities.led();
+    this.robot = BotLogic.entities.get(RobotEntity.class);
+    this.robot.led = BotLogic.entities.get(LedEntity.class);
 
     addEntity(this.robot);
     addEntity(this.robot.led);

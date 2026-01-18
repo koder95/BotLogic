@@ -1,25 +1,23 @@
 package de.macbury.botlogic.core.graphics.managers;
 
-import com.badlogic.gdx.Files;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g3d.Model;
 import com.badlogic.gdx.graphics.g3d.loader.G3dModelLoader;
 import com.badlogic.gdx.utils.UBJsonReader;
+import de.macbury.botlogic.core.entites.Entity;
+
+import java.util.Map;
 
 /**
  * Created by macbury on 11.04.14.
  */
 public class ModelManager {
-  public Model ledModel;
-  public Model robotModel;
+  private final Map<Class<? extends Entity>, Model> models;
 
-  public ModelManager() {
-    G3dModelLoader modelLoader = new G3dModelLoader(new UBJsonReader());
-    this.robotModel            = modelLoader.loadModel(Gdx.files.getFileHandle("assets/models/bot.g3db", Files.FileType.Internal));
-    //TextureAttribute attr = (TextureAttribute) robotModel.materials.first().get(TextureAttribute.Diffuse);
-    //attr.textureDescription.minFilter = Texture.TextureFilter.Nearest;
-    //attr.textureDescription.magFilter = Texture.TextureFilter.Nearest;
+  public ModelManager(Map<Class<? extends Entity>, Model> modelMap) {
+    this.models = modelMap;
+  }
 
-    this.ledModel              = modelLoader.loadModel(Gdx.files.getFileHandle("assets/models/led.g3db", Files.FileType.Internal));
+  public Model getModelFor(Class<? extends Entity> clazz) {
+    return this.models.get(clazz);
   }
 }
