@@ -8,5 +8,5 @@ import com.badlogic.gdx.graphics.g3d.ModelBatch;
  */
 public interface EntityModelRenderable {
 
-  public abstract void renderModel(ModelBatch batch, Environment env);
+  void renderModel(ModelBatch batch, Environment env);
 }

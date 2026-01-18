@@ -7,5 +7,5 @@ import com.badlogic.gdx.graphics.g3d.decals.DecalBatch;
  * Created by macbury on 01.04.14.
  */
 public interface EntityDecalRenderable {
-  public abstract void renderBatch(DecalBatch batch, Environment env);
+  void renderBatch(DecalBatch batch, Environment env);
 }

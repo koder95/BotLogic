@@ -7,5 +7,5 @@ import de.macbury.botlogic.core.screens.level.file.LevelFile;
  */
 public interface LevelTileListener {
 
-  public void onPlayClick(LevelFile level, LevelTile tile);
+  void onPlayClick(LevelFile level, LevelTile tile);
 }
